@@ -25,15 +25,4 @@ class gradespredicter:
         predict = linear.predict(data)
         for x in range(len(predict)):
             print("prediction: ",predict[x]," data: ",data[x])
-   
-    def test(self):
-        x_test,y_test,linear = self.train()
-        predictions = linear.predict(x_test)
-        for x in range(len(predictions)):
-            print(predictions[x], x_test[x], y_test[x])
-
-g = gradespredicter()
-g.test()
-
-
 
