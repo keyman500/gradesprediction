@@ -3,7 +3,7 @@ import numpy as np
 import sklearn
 from sklearn import linear_model
 from sklearn.utils import shuffle
-
+import pickle
 class gradespredicter:
     def __init__(self):
         self.data = pd.read_csv("student-mat.csv", sep=";")
@@ -25,4 +25,13 @@ class gradespredicter:
         predict = linear.predict(data)
         for x in range(len(predict)):
             print("prediction: ",predict[x]," data: ",data[x])
+        return predict
+    
+    def saveModel(self,model):
+        fp = open("model.pickle","wb")
+        pickle.dump(model,fp)
+    
+    def loadModel(self,filename):
+        fp = open(filename,"rb")
+        return pickle.load(fp)
 
